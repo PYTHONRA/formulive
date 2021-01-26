@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 
+        À titre d'information, l'attribut defer dans la balise script, 
+        indique que le chargement du script doit être déferré (~ différé) à la fin du chargement de la page.
+        Cela permet d'éviter d'avoir à mettre la balise script en fin de page. 
+    -->
+    <script src="js/login.js" defer></script>
 </head>
 <body>
     <form action="login.php" method="POST">
@@ -11,7 +17,7 @@
         <input type="text" required name="pseudo" id="pseudo">
         <label for="password">Password</label>
         <input type="password" name="motdepasse" id="password">
-        <button type="submit">Login</button>
+        <button type="submit" id="btn_login">Login</button>
     </form>
 </body>
 </html>

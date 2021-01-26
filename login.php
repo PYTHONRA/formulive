@@ -2,9 +2,10 @@
     include_once('bdd.php'); // n'inclut le fichier que s'il n'a pas déjà été inclut
 
     // Récupérer les données du formulaire : (méthode POST)
-    var_dump($_POST);
+    //xvar_dump($_POST);
    // var_dump($_REQUEST);
    // var_dump(getallheaders());
+    $headers = getallheaders(); // On récupère tous les headers dans un tableau associatifs
     $pseudo = $_POST['pseudo'];
     $password = $_POST['motdepasse']; 
     try {
@@ -27,7 +28,7 @@
         // On récupère les résultats : fetch() permet de récupérer une ligne, fetchAll() toutes les lignes
         // PDO::FETCH_ASSOC les résultats sont sous forme de tableau associatif (clé/valeur), 
         $resultat = $requetePreparee->fetch(PDO::FETCH_ASSOC);
-        var_dump($resultat);
+        //var_dump($resultat);
 
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -41,9 +42,20 @@
         $ok = password_verify($password, $hash);
     } 
      
-    if($ok) {
-        echo "Youpi, c'est la pause !!!! "; 
-    } else {
-         echo "Dommage, t'es pas bon!!";
-    }
+    // On vérifie dans les headers si on a un content type application/json
+    if(!empty($headers['Accept']) && $headers['Accept'] == 'application/json') {
+        header('Content-Type: application/json');
+        if($ok) {
+            echo json_encode("Youpi, c'est la pause !!!! "); 
+        } else {
+             echo json_encode("Dommage, t'es pas bon!!");
+        }
     
+    } else  {
+        header('Content-Type: text/html');
+        if($ok) {
+            echo "Youpi, c'est la pause !!!! "; 
+        } else {
+             echo "Dommage, t'es pas bon!!";
+        }
+    }
