@@ -7,7 +7,14 @@ $password = $_POST['password'];
 $confirmation = $_POST['password-confirmation'];
 
 // valider les données d'enregistrement 
-// TODO : vérifier le format de l'email
+// TODO : vérifier le format de l'email (merci Nassera, on va gagner beaucoup de temps )
+// On utilise la fonction filter_var : https://www.php.net/manual/fr/function.filter-var.php
+// Avec le filtre de validation des emails
+if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Le format de l'adresse est incorrect"; 
+    exit; 
+}
+
 // vérifier le nombre maximal de caractères par rapport aux types renseigné lors de la création de la BDD
 if(strlen($pseudo) > 255 || strlen($email) > 255) {
     // TODO : renvoyer une erreur et quitter ce programme
