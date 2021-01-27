@@ -5,8 +5,8 @@ Le back, toujours en PHP, une petite BDD avec une table utilisateur, dans laquel
 ## TODO : 
  [x] la BDD
  [x] le formulaire login.html
- [ ] la page de traitement du formulaire : login.php
- [ ] Basculer l'envoie du formulaire en JS (peut être une nouvelle branche ???)
+ [x] la page de traitement du formulaire : login.php
+ [x] Basculer l'envoie du formulaire en JS (peut être une nouvelle branche ???)
 
 ## La base de données
 
@@ -21,3 +21,22 @@ echo password_hash($pass, PASSWORD_DEFAULT);
 Sert à envoyer des données sous la forme clé/valeur. 
 Si on soumet le formulaire en HTML, la clé est donnée par l'attribut `name` de l'input et la valeur correspond à ce qu'a saisi l'utilisateur. 
 
+## Energistrement des utilisateurs 
+ [x] un formulaire d'enregistrement HTML
+ [ ] le fichier de traitement des données du formulaire en PHP
+    [x] récupérer les données d'enregistrement : pseudo, email, mot de passe (confirmé)
+    [x] valider les données d'enregistrement 
+        [-] vérifier le format de l'email
+        [x] vérifier le nombre maximal de caractères par rapport aux types renseigné lors de la création de la BDD
+        [x] vérifier la présence des mots de passe et l'égalité de mdp et de sa confirmation
+    [x] hashage du mot de passe
+    [x] on vérifie que l'utlisateur (son pseudo où son email n'existe pas déjà)
+        [x] = sql, donc pareil qu'en dessous
+    [x] insertion des données dans la base de données
+        [x] connexion à la base
+        [x] configuration (pour les exceptions)
+        [x] on écrit la requête d'insertion
+        [x] on prépare la requête
+        [x] on associe les valeurs (du formulaire) aux paramètres de notre requête préparée (ceux qui commencent pas `:` dans notre requête)
+        [x] on execute la requête
+        [x] on vérifie le nombre de ligne insérée (1 normalement)

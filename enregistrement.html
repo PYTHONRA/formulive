@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- dans l'attribut action, on indique l'url (ici relative) du fichier php responsable du traitement du formulaire -->
+    <form action="enregistrement.php" method="post">
+        <label for="pseudo">pseudo</label>
+        <input type="text" name="pseudo" id="pseudo" placeholder="pseudo"><br>
+        <label for="email">email</label>
+        <input type="email" name="email" id="email" placeholder="email"><br>
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password"  placeholder="Mot de passe"><br>
+        <label for="password-confirmation">Confirmation du mot de passe</label>
+        <input type="password" name="password-confirmation" id="password-confirmation" placeholder="Confirmation du mot de passe"><br>
+        <button type="submit">S'inscrire</button>
+    </form>
+
+</body>
+</html>
