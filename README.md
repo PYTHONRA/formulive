@@ -26,7 +26,7 @@ Si on soumet le formulaire en HTML, la clé est donnée par l'attribut `name` de
  [ ] le fichier de traitement des données du formulaire en PHP
     [x] récupérer les données d'enregistrement : pseudo, email, mot de passe (confirmé)
     [x] valider les données d'enregistrement 
-        [-] vérifier le format de l'email
+        [x] vérifier le format de l'email
         [x] vérifier le nombre maximal de caractères par rapport aux types renseigné lors de la création de la BDD
         [x] vérifier la présence des mots de passe et l'égalité de mdp et de sa confirmation
     [x] hashage du mot de passe
@@ -40,3 +40,17 @@ Si on soumet le formulaire en HTML, la clé est donnée par l'attribut `name` de
         [x] on associe les valeurs (du formulaire) aux paramètres de notre requête préparée (ceux qui commencent pas `:` dans notre requête)
         [x] on execute la requête
         [x] on vérifie le nombre de ligne insérée (1 normalement)
+
+## Téléversement d'image (upload pour les intimes)
+Objectif : soumettre une image en ayant la possibilité de lui donner un titre, qui sera indiqué dans l'attribut `alt`. 
+
+Pour envoyer une image, on va devoir : 
+ [ ] Rajouter une table pour enregistrer les informations à l'image
+ [x] Créer un formulaire de soumission d'image
+ [x] Créer un fichier php responsable du traitement du formulaire 
+    [x] récupérer le titre s'il y en a
+    [x] récupérer le fichier, 
+    [x] vérifier son extension
+    [x] le stocker quelque part (répertoire upload dans le dossier courant)
+    [ ] stocker les informations relative au fichier dans la base de donnée (cf au dessus)
+ [ ] Faire une page qui affiche toutes les images
